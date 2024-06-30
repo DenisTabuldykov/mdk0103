@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Practica13_33.Views.ProductsView"
+			 Background="Azure">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="90"/>
+		</Grid.RowDefinitions>
+		<ListBox SelectedItem="{Binding Selected}" ItemsSource="{Binding Tovars}" Grid.Row="0">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<Label Content="{Binding Name}"/>
+						<Label Content="{Binding Description}"/>
+						<Label Content="{Binding Price}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel Grid.Row="1">
+			<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+				<TextBox Text="{Binding Name}" Width="140"/>
+				<TextBox Text="{Binding Description}" Width="140"/>
+				<TextBox Text="{Binding Price}" Width="140"/>
+			</StackPanel>
+			<StackPanel>
+				<Button Foreground="Black" Width="100" HorizontalContentAlignment="Center" Content="Добавить" Command="{Binding AddTovar}"/>
+				<Button Foreground="Black" Width="100" HorizontalContentAlignment="Center" Content="Удалить" Command="{Binding RemoveTovar}"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+	
+</UserControl>
